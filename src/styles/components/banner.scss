@@ -1,42 +1,85 @@
 .banner {
-  margin-top: 2rem;
-  width: 960px;
-  margin: 0 auto;
-  .main-headline {
-    font-weight: 300;
-    line-height: 4.5rem;
-    span.semi-bold {
-      font-weight: 400;
-    }
-    span.underline {
-      text-decoration: underline;
+  height: 100vh;
+  width: 1080px;
+  display: flex;
+  margin-left: 20rem;
+  @media (max-width: 1480px) {
+    max-width: 1244px;
+    margin-left: 14rem;
+  }
+  @media (max-width: 1216px) {
+    margin-left: 8rem;
+  }
+  @media (max-width: 1024px) {
+    margin-left: 4rem;
+  }
+  @media (max-width: 768px) {
+    margin-left: 0rem;
+  }
+  @media (max-width: 676px) {
+    width: 100%;
+  }
+  align-items: center;
+  .inner-banner {
+    .main-headline {
+      font-weight: 300;
+      line-height: 4.5rem;
+      margin-bottom: 8rem;
+      @media (max-width: 1480px) {
+        font-size: 2.441em;
+        line-height: 3.7rem;
+        margin-top: 4rem;
+        width: 800px;
+      }
+      @media (max-width: 1216px) {
+      }
+      @media (max-width: 1024px) {
+        font-size: 1.563em;
+        line-height: 2.6rem;
+        margin-top: 3rem;
+        width: 600px;
+      }
+      @media (max-width: 768px) {
+        width: 480px;
+      }
+      span.semi-bold {
+        font-weight: 400;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
     }
   }
 }
 
 //Acommplishments
 .accomplishments-inner {
-  margin-top: 3rem;
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
+  @media (max-width: 768px) {
+    ul {
+      margin-right: 4rem;
+    }
+  }
 }
 
 .scroll-for-work {
   position: absolute;
-  bottom: -8rem;
+  bottom: 0;
+  left: 88px;
   font-size: 0.75rem;
   display: flex;
   align-items: center;
   flex-direction: column;
   span {
     display: block;
-    margin: 8px auto;
+    margin: 12px auto 0px;
   }
   .line {
     display: block;
     width: 1px;
     background: $text;
-    height: 4rem;
+    height: 3.6rem;
   }
 }

@@ -1,4 +1,3 @@
-import { Link } from "gatsby"
 import React from "react"
 
 const Headline = () => (
@@ -32,26 +31,60 @@ const Accomplishments = () => (
         <div className="columns">
           <div className="column">
             <li>
-              <a href="https://www.youtube.com/c/wrongakram">YouTube</a>
+              <a
+                rel="noopener noreferrer"
+                target="_blank"
+                href="https://www.youtube.com/c/wrongakram"
+              >
+                YouTube
+              </a>
             </li>
             <li>
-              <a href="https://twitter.com/wrongakram">Twitter</a>
+              <a
+                rel="noopener noreferrer"
+                target="_blank"
+                href="https://twitter.com/wrongakram"
+              >
+                Twitter
+              </a>
             </li>
             <li>
-              <a href="https://instagram.com/wrongakram">Instagram</a>
+              <a
+                rel="noopener noreferrer"
+                target="_blank"
+                href="https://instagram.com/wrongakram"
+              >
+                Instagram
+              </a>
             </li>
           </div>
           <div className="column">
             <li>
-              <a href="https://www.linkedin.com/in/akram-khalid-12b977142/">
+              <a
+                rel="noopener noreferrer"
+                target="_blank"
+                href="https://www.linkedin.com/in/akram-khalid-12b977142/"
+              >
                 LinkedIn
               </a>
             </li>
             <li>
-              <a href="https://dribbble.com/wrongakram">Dribbble</a>
+              <a
+                rel="noopener noreferrer"
+                target="_blank"
+                href="https://dribbble.com/wrongakram"
+              >
+                Dribbble
+              </a>
             </li>
             <li>
-              <a href="https://github.com/wrongakram">Github</a>
+              <a
+                rel="noopener noreferrer"
+                target="_blank"
+                href="https://github.com/wrongakram"
+              >
+                Github
+              </a>
             </li>
           </div>
         </div>
@@ -62,8 +95,10 @@ const Accomplishments = () => (
 
 const Banner = () => (
   <div className="banner">
-    <Headline />
-    <Accomplishments />
+    <div className="inner-banner">
+      <Headline />
+      <Accomplishments />
+    </div>
   </div>
 )
 

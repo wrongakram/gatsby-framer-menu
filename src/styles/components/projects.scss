@@ -1,0 +1,67 @@
+.projects {
+  margin-top: 14rem;
+}
+
+.project-header {
+  .project-inner {
+    display: flex;
+    justify-content: space-between;
+    width: 1000px;
+    margin: 0 auto;
+    @media (max-width: 1480px) {
+      width: 840px;
+    }
+    .project-title {
+      h5 {
+        margin: 0;
+        font-weight: 400;
+      }
+    }
+    .project-description {
+      p {
+        margin: 0;
+        font-weight: 300;
+        width: 410px;
+        color: $secondary;
+        line-height: 1.5rem;
+      }
+    }
+    .projects-worked-on {
+    }
+  }
+}
+
+// Device show case
+.three-device-showcase {
+  position: relative;
+  margin: 16rem auto;
+  .three-device-showcase-inner {
+    display: flex;
+    justify-content: space-between;
+    .device {
+      width: 309px;
+
+      &:first-child {
+        margin-top: 5rem;
+      }
+      &:last-child {
+        margin-top: -5rem;
+      }
+      img {
+        width: 309px;
+        border-radius: 1.5rem;
+        border: 3px solid $text;
+        box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.12);
+      }
+    }
+  }
+  .background-box {
+    position: absolute;
+    bottom: -4rem;
+    right: 0;
+    width: 50vw;
+    height: 724px;
+    background: #ebeaea;
+    z-index: -1;
+  }
+}

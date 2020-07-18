@@ -4,12 +4,25 @@
 //Header
 @import "./components/header.scss";
 @import "./components/banner.scss";
+@import "./components/projects.scss";
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
 
 body {
+  height: 100%;
   font-family: "ibm plex sans";
   font-size: 16px;
   background-color: $background;
   color: $text;
+  overflow-x: hidden;
+  overscroll-behavior-y: none;
 }
 
 h1,
@@ -87,26 +100,45 @@ ul {
   }
 }
 
+.app {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+
+  .smooth-scroll {
+    padding-bottom: 2rem;
+  }
+}
+
 .container {
   flex-grow: 1;
   margin: 0 auto;
   padding: 0 32px;
   position: relative;
   width: auto;
-  height: 100%;
   @media (min-width: 1024px) {
     max-width: 960px;
   }
   @media (min-width: 1216px) {
     max-width: 1152px;
   }
-  @media (min-width: 1408px) {
+  @media (min-width: 1480px) {
     max-width: 1244px;
   }
   &.fluid {
     padding: 0;
     margin: 0;
-    background: red;
     max-width: 100% !important;
   }
+}
+
+.label {
+  font-size: 10px;
+  background: #626eff;
+  color: $white;
+  border-radius: 4px;
+  padding: 4px;
 }

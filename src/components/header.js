@@ -1,14 +1,18 @@
 import { Link } from "gatsby"
-import PropTypes from "prop-types"
 import React from "react"
 
 const Header = () => (
   <header>
-    <div className="container">
+    <div className="container fluid">
       <div className="header-inner">
+        <Link to="/">AKRAM</Link>
         <nav>
-          <Link to="/">AKRAM</Link>
-          <Link to="/profile">PROFILE</Link>
+          <Link to="/profile">ME</Link>
+          <Link>
+            <span className="disabled">WORK</span>
+            <span className="label">Soon</span>
+          </Link>
+          <a href="mailto: wrongakram@gmail.com">CONTACT</a>
         </nav>
       </div>
     </div>

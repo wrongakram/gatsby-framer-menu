@@ -1,15 +1,38 @@
 header {
+  position: absolute;
+  padding: 0 88px;
+  width: 100%;
+  z-index: 99;
+  @media (max-width: 768px) {
+    padding: 0 32px;
+  }
   .header-inner {
     height: 120px;
     display: flex;
     align-items: center;
-    nav {
-      a {
-        font-size: 0.75rem;
-        &:last-child {
-          margin-left: 6rem;
+    justify-content: space-between;
+    a {
+      font-size: 0.75rem;
+      margin: 0 3rem;
+      &:last-child {
+        margin-right: 0rem;
+      }
+      span {
+        &.disabled {
+          cursor: not-allowed;
+          opacity: 0.4;
         }
       }
+      span {
+        &.label {
+          margin-left: 0.5rem;
+          cursor: not-allowed;
+        }
+      }
+    }
+    nav {
+      width: 100%;
+      text-align: right;
     }
   }
 }
