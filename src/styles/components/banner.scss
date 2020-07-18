@@ -1,0 +1,42 @@
+.banner {
+  margin-top: 2rem;
+  width: 960px;
+  margin: 0 auto;
+  .main-headline {
+    font-weight: 300;
+    line-height: 4.5rem;
+    span.semi-bold {
+      font-weight: 400;
+    }
+    span.underline {
+      text-decoration: underline;
+    }
+  }
+}
+
+//Acommplishments
+.accomplishments-inner {
+  margin-top: 3rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.scroll-for-work {
+  position: absolute;
+  bottom: -8rem;
+  font-size: 0.75rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  span {
+    display: block;
+    margin: 8px auto;
+  }
+  .line {
+    display: block;
+    width: 1px;
+    background: $text;
+    height: 4rem;
+  }
+}

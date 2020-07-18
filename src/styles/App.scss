@@ -1,10 +1,15 @@
 @import "./normalize.scss";
 @import "./varibles.scss";
 
+//Header
+@import "./components/header.scss";
+@import "./components/banner.scss";
+
 body {
   font-family: "ibm plex sans";
   font-size: 16px;
   background-color: $background;
+  color: $text;
 }
 
 h1,
@@ -41,4 +46,67 @@ h5 {
 small,
 .text_small {
   font-size: 0.8em;
+}
+
+a {
+  text-decoration: none;
+  color: $text;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  span {
+    text-transform: uppercase;
+    font-size: 0.875rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+    display: block;
+    letter-spacing: 0.05rem;
+  }
+  .columns {
+    display: flex;
+    .column {
+      &:first-child {
+        margin-right: 2rem;
+      }
+    }
+  }
+  li {
+    list-style: none;
+    font-size: 0.875rem;
+    font-weight: 300;
+    color: $secondary;
+    margin-bottom: 0.5rem;
+    a {
+      color: $secondary;
+    }
+    &.disabled {
+      opacity: 0.4;
+    }
+  }
+}
+
+.container {
+  flex-grow: 1;
+  margin: 0 auto;
+  padding: 0 32px;
+  position: relative;
+  width: auto;
+  height: 100%;
+  @media (min-width: 1024px) {
+    max-width: 960px;
+  }
+  @media (min-width: 1216px) {
+    max-width: 1152px;
+  }
+  @media (min-width: 1408px) {
+    max-width: 1244px;
+  }
+  &.fluid {
+    padding: 0;
+    margin: 0;
+    background: red;
+    max-width: 100% !important;
+  }
 }
