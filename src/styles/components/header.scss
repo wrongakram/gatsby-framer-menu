@@ -1,0 +1,15 @@
+header {
+  .header-inner {
+    height: 120px;
+    display: flex;
+    align-items: center;
+    nav {
+      a {
+        font-size: 0.75rem;
+        &:last-child {
+          margin-left: 6rem;
+        }
+      }
+    }
+  }
+}
