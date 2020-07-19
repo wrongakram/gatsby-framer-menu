@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
@@ -6,9 +6,11 @@ import { useStaticQuery, graphql } from "gatsby"
 import useWindowSize from "../hooks/useWindowSize"
 
 import Header from "./header"
+import Loading from "../components/loading"
+//Styles
 import "../styles/App.scss"
 
-const Layout = ({ children }) => {
+const Layout = ({ children, location }) => {
   const siteData = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -18,6 +20,8 @@ const Layout = ({ children }) => {
       }
     }
   `)
+
+  const [loading, setLoading] = useState(true)
 
   //Hook to grab window size
   const size = useWindowSize()
@@ -42,7 +46,7 @@ const Layout = ({ children }) => {
   //set the height of the body.
   useEffect(() => {
     setBodyHeight()
-  }, [size.height])
+  }, [size.height, loading, location])
 
   //Set the height of the body to the height of the scrolling div
   const setBodyHeight = () => {
@@ -50,6 +54,11 @@ const Layout = ({ children }) => {
       scrollContainer.current.getBoundingClientRect().height
     }px`
   }
+
+  const [state, setState] = useState({
+    scroll: 0,
+    skew: 0,
+  })
 
   // Scrolling
   const skewScrolling = () => {
@@ -67,19 +76,36 @@ const Layout = ({ children }) => {
     const skew = velocity * 7.5
 
     //Assign skew and smooth scrolling to the scroll container
-    scrollContainer.current.style.transform = `translate3d(0, -${data.rounded}px, 0) skewY(${skew}deg)`
-
+    setState({ scroll: data.rounded, skew: skew })
     //loop vai raf
     requestAnimationFrame(() => skewScrolling())
   }
 
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false)
+    }, 3000)
+  }, [])
+
   return (
-    <div ref={app} class="app">
-      <div ref={scrollContainer} className="smooth-scroll">
-        <Header siteTitle={siteData.site.siteMetadata.title} />
-        <div>
-          <main>{children}</main>
-        </div>
+    <div ref={app} className="app">
+      <div
+        style={{
+          transform: `translate3d(0, -${state.scroll}px, 0) skewY(${state.skew}deg)`,
+        }}
+        ref={scrollContainer}
+        className="smooth-scroll"
+      >
+        {loading ? (
+          <Loading />
+        ) : (
+          <>
+            <Header siteTitle={siteData.site.siteMetadata.title} />
+            <div>
+              <main>{children}</main>
+            </div>
+          </>
+        )}
       </div>
     </div>
   )

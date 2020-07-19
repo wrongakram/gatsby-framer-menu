@@ -1,16 +1,30 @@
-import React from "react"
+import React, { useState } from "react"
+import { motion } from "framer-motion"
 
-const Headline = () => (
-  <div className="container">
-    <h1 className="main-headline">
-      I am a <span className="semi-bold">Front End Developer</span> and
-      <span className="semi-bold"> UI/UX Designer</span> with a bit of backend
-      experience, primarily working with node. I also make{" "}
-      <span className="semi-bold underline">YouTube Videos</span> teaching
-      people to create things they can be proud of.
-    </h1>
-  </div>
-)
+const Headline = () => {
+  const [hovered, setHovered] = useState(false)
+  return (
+    <div className="container">
+      <h1 className="main-headline">
+        <motion.span animate={{ opacity: hovered ? 0.2 : 1 }}>
+          I am a <span className="semi-bold">Front End Developer</span> and
+          <span className="semi-bold"> UI/UX Designer</span> with a bit of
+          backend experience, primarily working with node. I also make{" "}
+        </motion.span>
+        <motion.span
+          onHoverStart={() => setHovered(!hovered)}
+          onHoverEnd={() => setHovered(!hovered)}
+          className="semi-bold underline"
+        >
+          YouTube Videos
+        </motion.span>{" "}
+        <motion.span animate={{ opacity: hovered ? 0.2 : 1 }}>
+          teaching people to create things they can be proud of.{" "}
+        </motion.span>
+      </h1>
+    </div>
+  )
+}
 
 const Accomplishments = () => (
   <div className="container">

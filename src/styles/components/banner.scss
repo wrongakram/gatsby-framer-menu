@@ -44,6 +44,9 @@
       }
       span.semi-bold {
         font-weight: 400;
+        &:hover {
+          cursor: pointer;
+        }
       }
       span.underline {
         text-decoration: underline;

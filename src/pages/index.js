@@ -8,12 +8,12 @@ import Banner from "../components/banner"
 import ISN from "../components/projects/isn"
 
 const IndexPage = () => (
-  <Layout>
+  <>
     <SEO title="Home" />
     <Banner />
     <ScrollForWork />
     <ISN />
-  </Layout>
+  </>
 )
 
 const ScrollForWork = () => (
