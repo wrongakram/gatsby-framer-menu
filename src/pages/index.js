@@ -11,16 +11,9 @@ const IndexPage = () => (
   <>
     <SEO title="Home" />
     <Banner />
-    <ScrollForWork />
+
     <ISN />
   </>
-)
-
-const ScrollForWork = () => (
-  <div className="scroll-for-work">
-    <span>WORK</span>
-    <span className="line"></span>
-  </div>
 )
 
 export default IndexPage

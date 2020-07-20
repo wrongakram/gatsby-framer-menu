@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { motion } from "framer-motion"
+import { motion, useViewportScroll, useTransform } from "framer-motion"
 
 const Headline = () => {
   const [hovered, setHovered] = useState(false)
@@ -107,12 +107,25 @@ const Accomplishments = () => (
   </div>
 )
 
+const ScrollForWork = () => {
+  // Fade view work out
+  const { scrollYProgress } = useViewportScroll()
+  const opacity = useTransform(scrollYProgress, [0, 0.7], [1, 0])
+  return (
+    <motion.div style={{ opacity }} className="scroll-for-work">
+      <span>WORK</span>
+      <span className="line"></span>
+    </motion.div>
+  )
+}
+
 const Banner = () => (
   <div className="banner">
     <div className="inner-banner">
       <Headline />
       <Accomplishments />
     </div>
+    <ScrollForWork />
   </div>
 )
 

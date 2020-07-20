@@ -8,7 +8,7 @@ const Header = () => (
         <Link to="/">AKRAM</Link>
         <nav>
           <Link to="/profile">ME</Link>
-          <Link>
+          <Link to="/">
             <span className="disabled">WORK</span>
             <span className="label">Soon</span>
           </Link>

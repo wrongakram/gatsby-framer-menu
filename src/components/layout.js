@@ -2,6 +2,8 @@ import React, { useEffect, useRef, useState } from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
+import { motion, AnimatePresence } from "framer-motion"
+
 //Hooks
 import useWindowSize from "../hooks/useWindowSize"
 
@@ -21,7 +23,7 @@ const Layout = ({ children, location }) => {
     }
   `)
 
-  const [loading, setLoading] = useState(true)
+  const [finishLoading, setFinishLoading] = useState(true)
 
   //Hook to grab window size
   const size = useWindowSize()
@@ -42,11 +44,6 @@ const Layout = ({ children, location }) => {
   useEffect(() => {
     requestAnimationFrame(() => skewScrolling())
   }, [])
-
-  //set the height of the body.
-  useEffect(() => {
-    setBodyHeight()
-  }, [size.height, loading, location])
 
   //Set the height of the body to the height of the scrolling div
   const setBodyHeight = () => {
@@ -83,12 +80,17 @@ const Layout = ({ children, location }) => {
 
   useEffect(() => {
     setTimeout(() => {
-      setLoading(false)
+      setFinishLoading(false)
     }, 3000)
   }, [])
 
+  //set the height of the body.
+  useEffect(() => {
+    setBodyHeight()
+  }, [size.height, finishLoading, location])
+
   return (
-    <div ref={app} className="app">
+    <motion.div exit={{ opacity: 0 }} ref={app} className="app">
       <div
         style={{
           transform: `translate3d(0, -${state.scroll}px, 0) skewY(${state.skew}deg)`,
@@ -96,18 +98,24 @@ const Layout = ({ children, location }) => {
         ref={scrollContainer}
         className="smooth-scroll"
       >
-        {loading ? (
-          <Loading />
-        ) : (
-          <>
-            <Header siteTitle={siteData.site.siteMetadata.title} />
-            <div>
-              <main>{children}</main>
-            </div>
-          </>
-        )}
+        <AnimatePresence>
+          {finishLoading ? (
+            <Loading key={"home2"} />
+          ) : (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+            >
+              <Header siteTitle={siteData.site.siteMetadata.title} />
+              <div>
+                <main>{children}</main>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
-    </div>
+    </motion.div>
   )
 }
 

@@ -1,4 +1,5 @@
 .banner {
+  position: relative;
   height: 100vh;
   width: 1080px;
   display: flex;
@@ -70,7 +71,7 @@
 .scroll-for-work {
   position: absolute;
   bottom: 0;
-  left: 88px;
+  left: -168px;
   font-size: 0.75rem;
   display: flex;
   align-items: center;
