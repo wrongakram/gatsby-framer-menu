@@ -11,7 +11,6 @@ const IndexPage = () => (
   <>
     <SEO title="Home" />
     <Banner />
-
     <ISN />
   </>
 )

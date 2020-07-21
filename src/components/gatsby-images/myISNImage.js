@@ -18,21 +18,21 @@ export const MyISNImage = ({ id }) => {
     query {
       myISNScreen1: file(relativePath: { eq: "myISN-Screen1.png" }) {
         childImageSharp {
-          fluid(maxWidth: 300) {
+          fluid(maxWidth: 312) {
             ...GatsbyImageSharpFluid
           }
         }
       }
       myISNScreen2: file(relativePath: { eq: "myISN-Screen2.png" }) {
         childImageSharp {
-          fluid(maxWidth: 300) {
+          fluid(maxWidth: 312) {
             ...GatsbyImageSharpFluid
           }
         }
       }
       myISNScreen3: file(relativePath: { eq: "myISN-Screen3.png" }) {
         childImageSharp {
-          fluid(maxWidth: 300) {
+          fluid(maxWidth: 312) {
             ...GatsbyImageSharpFluid
           }
         }

@@ -2,10 +2,12 @@
 @import "./varibles.scss";
 
 //Header
+@import "./components/loading.scss";
 @import "./components/header.scss";
 @import "./components/banner.scss";
 @import "./components/projects.scss";
-@import "./components/loading.scss";
+@import "./components/profile.scss";
+@import "./components/alert.scss";
 
 * {
   box-sizing: border-box;
@@ -142,4 +144,14 @@ ul {
   color: $white;
   border-radius: 4px;
   padding: 4px;
+}
+
+.site-version {
+  font-size: 0.875rem;
+  font-weight: 300;
+  color: $secondary;
+  position: fixed;
+  right: 3rem;
+  bottom: 3rem;
+  z-index: 99;
 }

@@ -1,6 +1,9 @@
 import React, { useState } from "react"
 import { motion, useViewportScroll, useTransform } from "framer-motion"
 
+//components
+import Alert from "../components/alert"
+
 const Headline = () => {
   const [hovered, setHovered] = useState(false)
   return (
@@ -120,13 +123,16 @@ const ScrollForWork = () => {
 }
 
 const Banner = () => (
-  <div className="banner">
-    <div className="inner-banner">
-      <Headline />
-      <Accomplishments />
+  <>
+    <Alert />
+    <div className="banner">
+      <div className="inner-banner">
+        <Headline />
+        <Accomplishments />
+      </div>
+      <ScrollForWork />
     </div>
-    <ScrollForWork />
-  </div>
+  </>
 )
 
 export default Banner

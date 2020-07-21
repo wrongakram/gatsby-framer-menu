@@ -1,15 +1,13 @@
 import React from "react"
 
-import Layout from "../components/layout"
+import ProfileBanner from "../components/profile/profileBanner"
 import SEO from "../components/seo"
 
-const ProfilePage = () => (
+const SecondPage = () => (
   <>
-    <SEO title="Home" />
-    <div style={{ padding: "200px" }} className="page">
-      Profile Page
-    </div>
+    <SEO title="Page two" />
+    <ProfileBanner />
   </>
 )
 
-export default ProfilePage
+export default SecondPage

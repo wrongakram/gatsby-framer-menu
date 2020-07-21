@@ -3,6 +3,9 @@
 }
 
 .project-header {
+  &.details {
+    margin: 24rem auto 12rem;
+  }
   .project-inner {
     display: flex;
     justify-content: space-between;
@@ -32,15 +35,16 @@
 }
 
 // Device show case
-.three-device-showcase {
+.three-device-showcase,
+.two-device-showcase {
   position: relative;
   margin: 16rem auto;
-  .three-device-showcase-inner {
+  .three-device-showcase-inner,
+  .two-device-showcase-inner {
     display: flex;
     justify-content: space-between;
     .device {
-      width: 309px;
-
+      width: 312px;
       &:first-child {
         margin-top: 5rem;
       }
@@ -48,10 +52,9 @@
         margin-top: -5rem;
       }
       img {
-        width: 309px;
+        width: 312px;
         border-radius: 1.5rem;
         border: 3px solid $text;
-        box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.12);
       }
     }
   }
@@ -63,5 +66,50 @@
     height: 724px;
     background: #ebeaea;
     z-index: -1;
+    &.left {
+      left: 0;
+    }
+  }
+}
+
+//single showcase
+.single-showcase {
+  .device {
+    margin: 4rem auto;
+    &.youtube-video {
+      position: relative;
+      pointer-events: none;
+      overflow: hidden;
+      height: 855px;
+      width: 100%;
+      display: flex;
+      align-self: center;
+      justify-content: center;
+      position: relative;
+      padding-bottom: 75%;
+      height: 0;
+      iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}
+
+.subtitle {
+  display: block;
+  font-size: $secondary;
+  font-weight: 300;
+  text-align: center;
+  width: 560px;
+  margin: 1rem auto;
+  font-size: 0.875rem;
+  opacity: 0.4;
+  line-height: 1.2rem;
+  @media (max-width: 768px) {
+    width: 100%;
   }
 }

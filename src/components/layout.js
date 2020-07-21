@@ -87,7 +87,7 @@ const Layout = ({ children, location }) => {
   //set the height of the body.
   useEffect(() => {
     setBodyHeight()
-  }, [size.height, finishLoading, location])
+  }, [size, finishLoading, location])
 
   return (
     <motion.div exit={{ opacity: 0 }} ref={app} className="app">
@@ -115,8 +115,13 @@ const Layout = ({ children, location }) => {
           )}
         </AnimatePresence>
       </div>
+      <SiteVersion />
     </motion.div>
   )
+}
+
+const SiteVersion = () => {
+  return <span className="site-version">v1.0</span>
 }
 
 Layout.propTypes = {
