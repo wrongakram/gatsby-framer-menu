@@ -8,6 +8,7 @@
 @import "./components/projects.scss";
 @import "./components/profile.scss";
 @import "./components/alert.scss";
+@import "./components/menu.scss";
 
 * {
   box-sizing: border-box;
@@ -154,4 +155,8 @@ ul {
   right: 3rem;
   bottom: 3rem;
   z-index: 99;
+}
+
+.body-lock {
+  overflow-y: hidden;
 }

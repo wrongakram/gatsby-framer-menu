@@ -1,7 +1,7 @@
 import { Link } from "gatsby"
 import React from "react"
 
-const Header = () => (
+const Header = ({ menuState, setMenuState }) => (
   <header>
     <div className="container fluid">
       <div className="header-inner">
@@ -14,6 +14,13 @@ const Header = () => (
           </Link>
           <a href="mailto: wrongakram@gmail.com">CONTACT</a>
         </nav>
+        <div
+          onClick={() => setMenuState(!menuState)}
+          className="hamburger-menu"
+        >
+          <span></span>
+          <span></span>
+        </div>
       </div>
     </div>
   </header>

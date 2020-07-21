@@ -7,8 +7,9 @@ import { motion, AnimatePresence } from "framer-motion"
 //Hooks
 import useWindowSize from "../hooks/useWindowSize"
 
-import Header from "./header"
 import Loading from "../components/loading"
+import Header from "./header"
+import Menu from "../components/menu"
 //Styles
 import "../styles/App.scss"
 
@@ -89,6 +90,13 @@ const Layout = ({ children, location }) => {
     setBodyHeight()
   }, [size, finishLoading, location])
 
+  const [menuState, setMenuState] = useState(false)
+
+  useEffect(() => {
+    menuState
+      ? document.body.classList.add("body-lock")
+      : document.body.classList.remove("body-lock")
+  }, [menuState])
   return (
     <motion.div exit={{ opacity: 0 }} ref={app} className="app">
       <div
@@ -107,7 +115,11 @@ const Layout = ({ children, location }) => {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
             >
-              <Header siteTitle={siteData.site.siteMetadata.title} />
+              <Header
+                setMenuState={setMenuState}
+                siteTitle={siteData.site.siteMetadata.title}
+              />
+              <Menu menuState={menuState} setMenuState={setMenuState} />
               <div>
                 <main>{children}</main>
               </div>

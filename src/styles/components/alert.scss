@@ -8,4 +8,7 @@
   width: 320px;
   padding: 16px 20px;
   line-height: 1.4rem;
+  @media (max-width: 1400px) {
+    display: none;
+  }
 }

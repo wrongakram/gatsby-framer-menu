@@ -1,0 +1,40 @@
+.menu {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background: $black;
+  z-index: 999;
+  .close {
+    z-index: 1000;
+    position: absolute;
+    color: $white;
+    top: 3rem;
+    right: 3rem;
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    font-size: 0.875rem;
+    letter-spacing: 0.05rem;
+    cursor: pointer;
+    svg {
+      height: 18px;
+    }
+  }
+  .menu-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    ul {
+      text-align: center;
+      li {
+        font-size: 6rem;
+        margin: 6rem;
+        color: $white;
+        a {
+          color: $white;
+        }
+      }
+    }
+  }
+}
