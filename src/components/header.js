@@ -11,9 +11,13 @@ const Header = ({ menuState, setMenuState }) => {
     <header>
       <div className="container fluid">
         <div className="header-inner">
-          <Link to="/">AKRAM</Link>
+          <Link activeClassName="active" to="/">
+            HOME
+          </Link>
           <nav>
-            <Link to="/profile">ME</Link>
+            <Link activeClassName="active" to="/profile">
+              ME
+            </Link>
             <a>
               <span className="disabled">WORK</span>
               <span className="label">Soon</span>

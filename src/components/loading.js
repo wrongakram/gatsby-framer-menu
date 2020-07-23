@@ -20,7 +20,7 @@ const Loading = () => {
     >
       <>
         <span className="text">
-          Site is loading, just getting my shit together.
+          Site is loading... <br /> I'm just getting my shit together.
         </span>
       </>
       <span className="progress">%{counter}</span>

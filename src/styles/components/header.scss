@@ -33,6 +33,28 @@ header {
           cursor: not-allowed;
         }
       }
+      &.active {
+        font-weight: 600;
+        position: relative;
+        @media (max-width: 876px) {
+          font-weight: 400;
+        }
+        &:after {
+          @media (max-width: 876px) {
+            display: none;
+          }
+          content: "";
+          position: absolute;
+          left: 50%;
+          top: 1rem;
+          transform: translateX(-50%);
+          border-radius: 100%;
+          height: 4px;
+          width: 4px;
+          background: #626eff;
+          display: block;
+        }
+      }
     }
     nav {
       width: 100%;
