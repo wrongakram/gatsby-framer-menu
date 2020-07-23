@@ -11,11 +11,13 @@ const ProfileBanner = () => {
             hike, run, dance horribly to music in my house, read, recently
             started to skate (ouch), record YouTube Videos, play basketball 🏀
             and swim. I might be missing a few things but I really live an
-            active lifestyle. Wanna chat feel free to reach me on any of my
-            socials @wrongakram or email me: wrongakram@gmail.
+            active lifestyle. Wanna ever chat about code, design, life or even
+            F1 🏎️? Feel free to reach me on any of my socials @wrongakram or
+            email me: wrongakram@gmail.
             <br />
             <br />
-            <span className="semi-bold">Take care my friend</span>
+            Take care
+            <span className="semi-bold"> my friend.</span>
           </h4>
         </div>
       </div>

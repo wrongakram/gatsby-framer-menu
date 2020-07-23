@@ -1,29 +1,36 @@
 import { Link } from "gatsby"
-import React from "react"
+import React, { useEffect } from "react"
+import { useLocation } from "@reach/router"
 
-const Header = ({ menuState, setMenuState }) => (
-  <header>
-    <div className="container fluid">
-      <div className="header-inner">
-        <Link to="/">AKRAM</Link>
-        <nav>
-          <Link to="/profile">ME</Link>
-          <Link to="/">
-            <span className="disabled">WORK</span>
-            <span className="label">Soon</span>
-          </Link>
-          <a href="mailto: wrongakram@gmail.com">CONTACT</a>
-        </nav>
-        <div
-          onClick={() => setMenuState(!menuState)}
-          className="hamburger-menu"
-        >
-          <span></span>
-          <span></span>
+const Header = ({ menuState, setMenuState }) => {
+  const location = useLocation()
+  useEffect(() => {
+    setMenuState(false)
+  }, [location])
+  return (
+    <header>
+      <div className="container fluid">
+        <div className="header-inner">
+          <Link to="/">AKRAM</Link>
+          <nav>
+            <Link to="/profile">ME</Link>
+            <a>
+              <span className="disabled">WORK</span>
+              <span className="label">Soon</span>
+            </a>
+            <a href="mailto: wrongakram@gmail.com">CONTACT</a>
+          </nav>
+          <div
+            onClick={() => setMenuState(!menuState)}
+            className="hamburger-menu"
+          >
+            <span></span>
+            <span></span>
+          </div>
         </div>
       </div>
-    </div>
-  </header>
-)
+    </header>
+  )
+}
 
 export default Header

@@ -4,12 +4,13 @@
   width: 100%;
   background: $black;
   z-index: 999;
+  overflow: hidden;
   .close {
     z-index: 1000;
     position: absolute;
     color: $white;
-    top: 3rem;
-    right: 3rem;
+    top: 3.3rem;
+    right: 2rem;
     display: flex;
     align-items: center;
     text-transform: uppercase;
@@ -28,11 +29,32 @@
     ul {
       text-align: center;
       li {
-        font-size: 6rem;
         margin: 6rem;
         color: $white;
+        position: relative;
+        overflow: hidden;
+        @media (max-width: 480px) {
+          margin: 4rem;
+        }
+        .label {
+          top: 0;
+          right: 0;
+          position: absolute;
+          font-size: 0.75rem;
+          display: block;
+        }
         a {
           color: $white;
+        }
+        span {
+          @media (max-width: 480px) {
+            font-size: 4rem;
+          }
+          font-size: 6rem;
+          color: $white;
+          text-transform: capitalize;
+          margin: 0 auto;
+          font-weight: 300;
         }
       }
     }

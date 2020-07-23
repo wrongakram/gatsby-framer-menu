@@ -97,6 +97,7 @@ const Layout = ({ children, location }) => {
       ? document.body.classList.add("body-lock")
       : document.body.classList.remove("body-lock")
   }, [menuState])
+
   return (
     <motion.div exit={{ opacity: 0 }} ref={app} className="app">
       <div

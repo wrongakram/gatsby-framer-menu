@@ -19,7 +19,9 @@ const Loading = () => {
       className="loading-screen"
     >
       <>
-        <span className="text">Loading</span>
+        <span className="text">
+          Site is loading, just getting my shit together.
+        </span>
       </>
       <span className="progress">%{counter}</span>
     </motion.div>

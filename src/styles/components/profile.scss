@@ -23,6 +23,14 @@
         margin-top: 3rem;
         width: 100%;
       }
+      @media (max-width: 480px) {
+        font-size: 2em;
+        line-height: 4rem;
+      }
+      @media (max-width: 360px) {
+        font-size: 1.7em;
+        line-height: 3rem;
+      }
       span.semi-bold {
         font-weight: 400;
         &:hover {

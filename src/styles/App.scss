@@ -68,6 +68,15 @@ small,
 a {
   text-decoration: none;
   color: $text;
+  transition: ease-in-out 0.2s;
+  &:hover {
+    opacity: 0.5;
+  }
+  &.no-hover {
+    &:hover {
+      opacity: 1;
+    }
+  }
 }
 
 ul {
@@ -86,6 +95,9 @@ ul {
     .column {
       &:first-child {
         margin-right: 2rem;
+        @media (max-width: 680px) {
+          margin-right: 8rem;
+        }
       }
     }
   }
@@ -95,6 +107,9 @@ ul {
     font-weight: 300;
     color: $secondary;
     margin-bottom: 0.5rem;
+    @media (max-width: 680px) {
+      margin-bottom: 0.75rem;
+    }
     a {
       color: $secondary;
     }

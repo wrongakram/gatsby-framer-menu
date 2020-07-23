@@ -1,9 +1,6 @@
 import React, { useState } from "react"
 import { motion, useViewportScroll, useTransform } from "framer-motion"
 
-//components
-import Alert from "../components/alert"
-
 const Headline = () => {
   const [hovered, setHovered] = useState(false)
   return (
@@ -19,7 +16,14 @@ const Headline = () => {
           onHoverEnd={() => setHovered(!hovered)}
           className="semi-bold underline"
         >
-          YouTube Videos
+          <a
+            className="no-hover"
+            rel="noopener noreferrer"
+            target="_blank"
+            href="https://www.youtube.com/c/wrongakram"
+          >
+            YouTube Videos
+          </a>
         </motion.span>{" "}
         <motion.span animate={{ opacity: hovered ? 0.2 : 1 }}>
           teaching people to create things they can be proud of.{" "}
@@ -34,7 +38,7 @@ const Accomplishments = () => (
     <div className="accomplishments-inner">
       <ul>
         <span>Recent Accomplishments:</span>
-        <li>5k+ Subscribers</li>
+        <li>6k+ Subscribers</li>
         <li>Awwwards Jury Member</li>
         <li>Taught Oliver to play Fetch</li>
       </ul>
@@ -124,7 +128,6 @@ const ScrollForWork = () => {
 
 const Banner = () => (
   <>
-    <Alert />
     <div className="banner">
       <div className="inner-banner">
         <Headline />

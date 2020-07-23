@@ -1,7 +1,11 @@
 import React from "react"
+import ReactPlayer from "react-player/lazy"
 
 import { MyISNImage } from "../gatsby-images/myISNImage"
 import { IMTImage } from "../gatsby-images/imtImage"
+import { DesignSystemImage } from "../gatsby-images/designSystemImage"
+
+import { RightArrow } from "../../icons/icons"
 
 const ISN = () => {
   return (
@@ -14,6 +18,8 @@ const ISN = () => {
       <TwoDeviceShowcase left={5} right={6} flip={true} />
       <VideoShowcase />
       <ProjectDetailsDesignSystem />
+      <SingleShowcaseDS />
+      <Dribbble />
     </div>
   )
 }
@@ -69,6 +75,7 @@ const ProjectDetails = () => {
               <span>Design & Tech Used: </span>
               <li>Adobe XD & Protopie</li>
               <li>Next.js</li>
+              <li>PWA</li>
               <li>Context for State Management</li>
               <li>Framer Motion</li>
             </ul>
@@ -178,19 +185,94 @@ const SingleShowcase = () => {
   )
 }
 
+const SingleShowcaseDS = () => {
+  return (
+    <div className="single-showcase">
+      <div className="container">
+        <div className="single-showcase-inner">
+          <div className="device">
+            <DesignSystemImage id={1} />
+            <span className="subtitle">
+              Screenshots from the design system, the following represent
+              different input states.
+            </span>
+          </div>
+          <div className="device">
+            <DesignSystemImage id={2} />
+            <span className="subtitle">
+              Inputs, checkboxes & switches. We all know how important they are.
+            </span>
+          </div>
+          <div className="device">
+            <DesignSystemImage id={3} />
+            <span className="subtitle">
+              Clean up your breadcrumbs! You makin a mess.
+            </span>
+          </div>
+          <div className="device">
+            <DesignSystemImage id={4} />
+            <span className="subtitle">
+              Top nav, quickly access tool through the search bar!
+            </span>
+          </div>
+          <div className="device">
+            <DesignSystemImage id={5} />
+            <span className="subtitle">
+              Using system fonts, so Segoe UI, Apple-System-Font (SF Pro) and
+              Roboto will widely be used.
+            </span>
+          </div>
+          <div className="device">
+            <DesignSystemImage id={6} />
+            <span className="subtitle">
+              Page layout without sub-navigation.
+            </span>
+          </div>
+          <div className="device">
+            <DesignSystemImage id={7} />
+            <span className="subtitle">Page layout with sub-navigation.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
 const VideoShowcase = () => {
   return (
     <div className="single-showcase">
       <div className="container">
         <div className="single-showcase-inner">
           <div className="device youtube-video">
-            <iframe
-              width="100%"
-              height="100%"
-              src="https://www.youtube.com/embed/BvJZaOMsa3I?autoplay=1&rel=1&showinfo=0&loop=1&controls=0&playlist=BvJZaOMsa3I"
-              frameborder="0"
-            ></iframe>
+            <ReactPlayer
+              url="https://vimeo.com/440660618"
+              playing={true}
+              loop={true}
+              controls={false}
+              muted={true}
+            />
           </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+const Dribbble = () => {
+  return (
+    <div className="dribble-showcase">
+      <div className="container">
+        <div className="dribble-showcase-inner">
+          <h4>Want more work?</h4>
+          <span>
+            <a
+              rel="noopener noreferrer"
+              target="_blank"
+              href="https://dribbble.com/wrongakram"
+            >
+              Check out my dribbble <RightArrow />
+            </a>
+          </span>
         </div>
       </div>
     </div>
