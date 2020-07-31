@@ -1,19 +1,16 @@
-import React, { useEffect, useRef, useState } from "react"
+import React, { useEffect, useState } from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
+import useMousePosition from "../hooks/useMousePosition"
+import { motion } from "framer-motion"
 
-import { motion, AnimatePresence } from "framer-motion"
-
-//Hooks
-import useWindowSize from "../hooks/useWindowSize"
-
-import Loading from "../components/loading"
+//Components
 import Header from "./header"
 import Menu from "../components/menu"
 //Styles
 import "../styles/App.scss"
 
-const Layout = ({ children, location }) => {
+const Layout = ({ children }) => {
   const siteData = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -24,117 +21,53 @@ const Layout = ({ children, location }) => {
     }
   `)
 
-  const [finishLoading, setFinishLoading] = useState(true)
-
-  //Hook to grab window size
-  const size = useWindowSize()
-
-  // Ref for parent div and scrolling div
-  const app = useRef()
-  const scrollContainer = useRef()
-
-  // Configs
-  const data = {
-    ease: 0.1,
-    current: 0,
-    previous: 0,
-    rounded: 0,
-  }
-
-  // Run scrollrender once page is loaded.
-  useEffect(() => {
-    requestAnimationFrame(() => skewScrolling())
-  }, [])
-
-  //Set the height of the body to the height of the scrolling div
-  const setBodyHeight = () => {
-    document.body.style.height = `${
-      scrollContainer.current.getBoundingClientRect().height
-    }px`
-  }
-
-  const [state, setState] = useState({
-    scroll: 0,
-    skew: 0,
-  })
-
-  // Scrolling
-  const skewScrolling = () => {
-    //Set Current to the scroll position amount
-    data.current = window.scrollY
-    // Set Previous to the scroll previous position
-    data.previous += (data.current - data.previous) * data.ease
-    // Set rounded to
-    data.rounded = Math.round(data.previous * 100) / 100
-
-    // Difference between
-    const difference = data.current - data.rounded
-    const acceleration = difference / size.width
-    const velocity = +acceleration
-    const skew = velocity * 7.5
-
-    //Assign skew and smooth scrolling to the scroll container
-    setState({ scroll: data.rounded, skew: skew })
-    //loop vai raf
-    requestAnimationFrame(() => skewScrolling())
-  }
-
-  useEffect(() => {
-    setTimeout(() => {
-      setFinishLoading(false)
-    }, 3000)
-  }, [])
-
-  //set the height of the body.
-  useEffect(() => {
-    setBodyHeight()
-  }, [size, finishLoading, location])
-
+  // State of our menu
   const [menuState, setMenuState] = useState(false)
+  // State of to display our custom cursor
+  const [cursorHovered, setCursorHovered] = useState(false)
 
+  // Locking the body from scrolling when menu is opened
   useEffect(() => {
     menuState
       ? document.body.classList.add("body-lock")
       : document.body.classList.remove("body-lock")
   }, [menuState])
 
-  return (
-    <motion.div exit={{ opacity: 0 }} ref={app} className="app">
-      <div
-        style={{
-          transform: `translate3d(0, -${state.scroll}px, 0) skewY(${state.skew}deg)`,
-        }}
-        ref={scrollContainer}
-        className="smooth-scroll"
-      >
-        <AnimatePresence>
-          {finishLoading ? (
-            <Loading key={"home2"} />
-          ) : (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-            >
-              <Header
-                setMenuState={setMenuState}
-                siteTitle={siteData.site.siteMetadata.title}
-              />
-              <Menu menuState={menuState} setMenuState={setMenuState} />
-              <div>
-                <main>{children}</main>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </div>
-      <SiteVersion />
-    </motion.div>
-  )
-}
+  //get x and y mouse coordinates
+  const { x, y } = useMousePosition()
 
-const SiteVersion = () => {
-  return <span className="site-version">v1.0</span>
+  return (
+    <div className="app">
+      <motion.div
+        animate={{
+          x: x - 16,
+          y: y - 16,
+          scale: cursorHovered ? 1.2 : 1,
+          opacity: cursorHovered ? 0.8 : 0,
+        }}
+        transition={{
+          ease: "linear",
+          duration: 0.2,
+        }}
+        className="cursor"
+      ></motion.div>
+      <Header
+        setMenuState={setMenuState}
+        setCursorHovered={setCursorHovered}
+        siteTitle={siteData.site.siteMetadata.title}
+      />
+      <Menu
+        setCursorHovered={setCursorHovered}
+        menuState={menuState}
+        setMenuState={setMenuState}
+        x={x}
+        y={y}
+      />
+      <div>
+        <main>{children}</main>
+      </div>
+    </div>
+  )
 }
 
 Layout.propTypes = {

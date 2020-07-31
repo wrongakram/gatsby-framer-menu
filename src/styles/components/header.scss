@@ -2,7 +2,7 @@ header {
   position: absolute;
   padding: 0 88px;
   width: 100%;
-  z-index: 99;
+  z-index: 8;
   @media (max-width: 768px) {
     padding: 0 32px;
   }
@@ -12,48 +12,21 @@ header {
     align-items: center;
     justify-content: space-between;
     a {
-      font-size: 0.75rem;
+      font-size: 1.4rem;
       margin: 0 3rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
       &:first-child {
         margin-left: 0rem;
       }
       &:last-child {
         margin-right: 0rem;
       }
-      span {
-        &.disabled {
-          cursor: not-allowed;
-          opacity: 0.4;
-        }
-      }
-      span {
-        &.label {
-          position: relative;
-          margin-left: 0.5rem;
-          cursor: not-allowed;
-        }
-      }
-      &.active {
-        font-weight: 600;
-        position: relative;
-        @media (max-width: 876px) {
-          font-weight: 400;
-        }
-        &:after {
-          @media (max-width: 876px) {
-            display: none;
-          }
-          content: "";
-          position: absolute;
-          left: 50%;
-          top: 1rem;
-          transform: translateX(-50%);
-          border-radius: 100%;
-          height: 4px;
-          width: 4px;
-          background: #626eff;
-          display: block;
-        }
+      svg {
+        width: 1.2rem;
+        margin-right: 0.5rem;
+        margin-top: 0.1rem;
       }
     }
     nav {
@@ -62,20 +35,14 @@ header {
       display: flex;
       align-items: center;
       justify-content: flex-end;
-      @media (max-width: 876px) {
-        display: none;
-      }
     }
     .hamburger-menu {
       cursor: pointer;
-      display: none;
-      @media (max-width: 876px) {
-        display: block;
-      }
+      display: block;
       span {
-        height: 2px;
-        width: 24px;
-        margin: 5px;
+        height: 3px;
+        width: 30px;
+        margin: 6px;
         display: block;
         background: $text;
       }

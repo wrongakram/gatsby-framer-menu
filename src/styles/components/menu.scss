@@ -1,16 +1,17 @@
-.menu {
+.projects {
   position: fixed;
   height: 100%;
   width: 100%;
-  background: $black;
-  z-index: 999;
+  z-index: 9;
   overflow: hidden;
-  .close {
+  background: #fff;
+  .close,
+  .menu-title {
     z-index: 1000;
     position: absolute;
-    color: $white;
-    top: 3.3rem;
-    right: 2rem;
+    color: $black;
+    top: 3rem;
+    right: 5.8rem;
     display: flex;
     align-items: center;
     text-transform: uppercase;
@@ -18,45 +19,158 @@
     letter-spacing: 0.05rem;
     cursor: pointer;
     svg {
-      height: 18px;
+      height: 30px;
     }
   }
-  .menu-inner {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  .menu-title {
+    top: 3rem;
+    left: 5.8rem;
+    text-transform: capitalize;
+    font-size: 1.4rem;
+  }
+  .menu {
     height: 100vh;
-    ul {
-      text-align: center;
-      li {
-        margin: 6rem;
-        color: $white;
-        position: relative;
-        overflow: hidden;
-        @media (max-width: 480px) {
-          margin: 4rem;
-        }
-        .label {
-          top: 0;
-          right: 0;
-          position: absolute;
-          font-size: 0.75rem;
-          display: block;
-        }
-        a {
+    .menu-inner {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 8rem 0;
+      height: 100vh;
+      ul {
+        width: 100%;
+        display: block;
+        li {
           color: $white;
-        }
-        span {
-          @media (max-width: 480px) {
-            font-size: 4rem;
+          position: relative;
+          width: 100%;
+          height: 115px;
+          a {
+            height: 100%;
+            .wrapper {
+              height: 100%;
+              display: flex;
+              align-items: flex-end;
+              .title {
+                margin: 0 1rem;
+                z-index: 10;
+                &:hover {
+                  color: black;
+                  -webkit-text-fill-color: white; /* Will override color (regardless of order) */
+                  -webkit-text-stroke-width: 1px;
+                  -webkit-text-stroke-color: black;
+                }
+                h2 {
+                  overflow: hidden;
+                  margin: 0;
+                  font-size: 4rem;
+                  font-weight: 500;
+                }
+              }
+              .thumbnail {
+                margin-bottom: 1.4rem;
+                overflow: hidden;
+                position: absolute;
+                left: 30rem;
+                width: 7.6rem;
+                height: 5rem;
+                .mask {
+                  height: 100%;
+                  width: 100%;
+                  z-index: 8;
+                  position: absolute;
+                  background: $white;
+                  top: 0;
+                }
+                img {
+                  position: absolute;
+                  width: 100%;
+                  height: 100%;
+                  right: 0;
+                }
+              }
+              .floating-image {
+                pointer-events: none;
+                width: 24rem;
+                position: absolute;
+                background-size: cover;
+                background-position: 50%;
+                z-index: 99;
+                overflow: hidden;
+              }
+            }
+            .line {
+              height: 1px;
+              width: 100%;
+              background: $black;
+              margin-bottom: 0.8rem;
+              position: relative;
+              display: flex;
+              align-items: center;
+              &.flex-0 {
+                flex: 0;
+                &:after {
+                  display: none;
+                }
+              }
+              &.flex-1 {
+                flex: 1;
+              }
+              &.flex-2 {
+                flex: 2;
+              }
+              &.flex-3 {
+                flex: 3;
+              }
+              &.left {
+                &:after {
+                  content: "";
+                  position: absolute;
+                  height: 6px;
+                  width: 6px;
+                  border-radius: 100%;
+                  background: $black;
+                  right: 0;
+                }
+              }
+              &.right {
+                &:after {
+                  content: "";
+                  position: absolute;
+                  height: 6px;
+                  width: 6px;
+                  border-radius: 100%;
+                  background: $black;
+                }
+              }
+              .mask {
+                background: $white;
+                width: 100%;
+                height: 6px;
+                z-index: 9;
+                position: absolute;
+                &.right {
+                  right: 0;
+                }
+              }
+            }
           }
-          font-size: 6rem;
-          color: $white;
-          text-transform: capitalize;
-          margin: 0 auto;
-          font-weight: 300;
         }
       }
     }
   }
+}
+
+.left-panel-background {
+  height: 100vh;
+  width: 50vw;
+  position: absolute;
+  z-index: 11;
+}
+.right-panel-background {
+  height: 100vh;
+  width: 50vw;
+  position: absolute;
+  right: 0;
+  z-index: 11;
 }

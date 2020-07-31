@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: `Akram Khalid Portfolio`,
-    description: `The website of Akram Khalid, Front End Developer and UI/UX Designer in Dallas, TX.`,
+    title: `Awwwards Rebuilt Mini`,
+    description: `A mini rebuilt of a hamburger menu`,
     author: `@wrongakram`,
   },
   plugins: [
@@ -32,18 +32,6 @@ module.exports = {
         theme_color: `#000`,
         display: `minimal-ui`,
         icon: `src/images/favicon.png`, // This path is relative to the root of the site.
-      },
-    },
-    {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        trackingId: "UA-173516417-1",
-        head: false,
-        anonymize: true,
-        respectDNT: true,
-        pageTransitionDelay: 0,
-        sampleRate: 5,
-        siteSpeedSampleRate: 10,
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

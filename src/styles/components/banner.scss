@@ -1,55 +1,25 @@
 .banner {
   position: relative;
   height: 100vh;
-  width: 1080px;
-  display: flex;
-  margin-left: 20rem;
-  @media (max-width: 1480px) {
-    max-width: 1244px;
-    margin-left: 14rem;
-  }
-  @media (max-width: 1216px) {
-    margin-left: 8rem;
-  }
-  @media (max-width: 1024px) {
-    margin-left: 4rem;
-  }
-  @media (max-width: 768px) {
-    margin-left: 0rem;
-  }
-  @media (max-width: 680px) {
+  width: 100%;
+  .inner-banner {
     width: 100%;
     height: 100%;
-  }
-  align-items: center;
-  .inner-banner {
-    @media (max-width: 680px) {
-      margin-top: 12rem;
-    }
+    display: flex;
+    align-items: center;
     .main-headline {
-      font-weight: 300;
-      line-height: 4.5rem;
-      margin-bottom: 8rem;
-      @media (max-width: 1480px) {
-        font-size: 2.441em;
-        line-height: 3.7rem;
-        margin-top: 4rem;
-        width: 800px;
-      }
-      @media (max-width: 1216px) {
-      }
-      @media (max-width: 1024px) {
-        font-size: 1.563em;
-        line-height: 2.6rem;
-        margin-top: 3rem;
-        width: 600px;
-      }
-      @media (max-width: 768px) {
-        width: 480px;
-      }
-      @media (max-width: 680px) {
-        width: 100%;
-      }
+      font-weight: 400;
+      line-height: 10rem;
+      font-size: 12rem;
+      color: #fff;
+      mix-blend-mode: difference;
+      width: 100%;
+      position: absolute;
+      z-index: 1;
+      left: 0;
+      text-align: center;
+      top: 50%;
+      transform: translateY(-50%);
       span.semi-bold {
         font-weight: 400;
         &:hover {
@@ -59,47 +29,17 @@
       span.underline {
         text-decoration: underline;
       }
+      &.small {
+        font-size: 3rem;
+      }
     }
-  }
-}
+    .image {
+      width: 1000px;
+      margin: 0 auto;
 
-//Acommplishments
-.accomplishments-inner {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  @media (max-width: 680px) {
-    flex-wrap: wrap;
-  }
-  @media (max-width: 768px) {
-    ul {
-      margin-right: 4rem;
+      img {
+        width: 100%;
+      }
     }
-  }
-  @media (max-width: 680px) {
-    ul {
-      width: 100%;
-      margin: 2rem auto;
-    }
-  }
-}
-
-.scroll-for-work {
-  position: absolute;
-  bottom: 0;
-  left: -168px;
-  font-size: 0.75rem;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  span {
-    display: block;
-    margin: 12px auto 0px;
-  }
-  .line {
-    display: block;
-    width: 1px;
-    background: $text;
-    height: 3.6rem;
   }
 }

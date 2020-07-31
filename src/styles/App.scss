@@ -2,12 +2,8 @@
 @import "./varibles.scss";
 
 //Header
-@import "./components/loading.scss";
 @import "./components/header.scss";
 @import "./components/banner.scss";
-@import "./components/projects.scss";
-@import "./components/profile.scss";
-@import "./components/alert.scss";
 @import "./components/menu.scss";
 
 * {
@@ -23,10 +19,8 @@ body {
   height: 100%;
   font-family: "ibm plex sans";
   font-size: 16px;
-  background-color: $background;
+  background-color: #fff;
   color: $text;
-  overflow-x: hidden;
-  overscroll-behavior-y: none;
 }
 
 h1,
@@ -67,16 +61,8 @@ small,
 
 a {
   text-decoration: none;
-  color: $text;
+  color: $black;
   transition: ease-in-out 0.2s;
-  &:hover {
-    opacity: 0.5;
-  }
-  &.no-hover {
-    &:hover {
-      opacity: 1;
-    }
-  }
 }
 
 ul {
@@ -119,19 +105,6 @@ ul {
   }
 }
 
-.app {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  overflow: hidden;
-
-  .smooth-scroll {
-    padding-bottom: 2rem;
-  }
-}
-
 .container {
   flex-grow: 1;
   margin: 0 auto;
@@ -154,24 +127,18 @@ ul {
   }
 }
 
-.label {
-  font-size: 10px;
-  background: #626eff;
-  color: $white;
-  border-radius: 4px;
-  padding: 4px;
-}
-
-.site-version {
-  font-size: 0.875rem;
-  font-weight: 300;
-  color: $secondary;
-  position: fixed;
-  right: 3rem;
-  bottom: 3rem;
-  z-index: 99;
-}
-
 .body-lock {
   overflow-y: hidden;
+}
+
+.cursor {
+  cursor: pointer;
+  height: 2.5rem;
+  width: 2.5rem;
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  background: #e7dede;
+  border-radius: 100%;
+  pointer-events: none;
 }

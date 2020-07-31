@@ -13,26 +13,33 @@ import Img from "gatsby-image"
  * - `useStaticQuery`: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-export const MyISNImage = ({ id }) => {
+export const Image = ({ src }) => {
   const data = useStaticQuery(graphql`
     query {
-      myISNScreen1: file(relativePath: { eq: "myISN-Screen1.png" }) {
+      shoe1: file(relativePath: { eq: "shoe1.jpg" }) {
         childImageSharp {
-          fluid(maxWidth: 312) {
+          fluid(maxWidth: 700) {
             ...GatsbyImageSharpFluid
           }
         }
       }
-      myISNScreen2: file(relativePath: { eq: "myISN-Screen2.png" }) {
+      shoe2: file(relativePath: { eq: "shoe2.jpg" }) {
         childImageSharp {
-          fluid(maxWidth: 312) {
+          fluid(maxWidth: 700) {
             ...GatsbyImageSharpFluid
           }
         }
       }
-      myISNScreen3: file(relativePath: { eq: "myISN-Screen3.png" }) {
+      shoe3: file(relativePath: { eq: "shoe3.jpg" }) {
         childImageSharp {
-          fluid(maxWidth: 312) {
+          fluid(maxWidth: 700) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      shoe4: file(relativePath: { eq: "shoe4.jpg" }) {
+        childImageSharp {
+          fluid(maxWidth: 700) {
             ...GatsbyImageSharpFluid
           }
         }
@@ -42,12 +49,14 @@ export const MyISNImage = ({ id }) => {
 
   return (
     <>
-      {id === 1 ? (
-        <Img fluid={data.myISNScreen1.childImageSharp.fluid} />
-      ) : id === 2 ? (
-        <Img fluid={data.myISNScreen2.childImageSharp.fluid} />
+      {src === 1 ? (
+        <Img fluid={data.shoe1.childImageSharp.fluid} />
+      ) : src === 2 ? (
+        <Img fluid={data.shoe2.childImageSharp.fluid} />
+      ) : src === 3 ? (
+        <Img fluid={data.shoe3.childImageSharp.fluid} />
       ) : (
-        <Img fluid={data.myISNScreen3.childImageSharp.fluid} />
+        <Img fluid={data.shoe4.childImageSharp.fluid} />
       )}
     </>
   )

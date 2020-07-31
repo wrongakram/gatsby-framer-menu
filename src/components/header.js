@@ -2,7 +2,7 @@ import { Link } from "gatsby"
 import React, { useEffect } from "react"
 import { useLocation } from "@reach/router"
 
-const Header = ({ menuState, setMenuState }) => {
+const Header = ({ menuState, setMenuState, setCursorHovered }) => {
   const location = useLocation()
   useEffect(() => {
     setMenuState(false)
@@ -12,21 +12,13 @@ const Header = ({ menuState, setMenuState }) => {
       <div className="container fluid">
         <div className="header-inner">
           <Link activeClassName="active" to="/">
-            HOME
+            Pocket.
           </Link>
-          <nav>
-            <Link activeClassName="active" to="/profile">
-              ME
-            </Link>
-            <a>
-              <span className="disabled">WORK</span>
-              <span className="label">Soon</span>
-            </a>
-            <a href="mailto: wrongakram@gmail.com">CONTACT</a>
-          </nav>
           <div
             onClick={() => setMenuState(!menuState)}
             className="hamburger-menu"
+            onMouseEnter={() => setCursorHovered(true)}
+            onMouseLeave={() => setCursorHovered(false)}
           >
             <span></span>
             <span></span>
