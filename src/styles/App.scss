@@ -1,10 +1,8 @@
 @import "./normalize.scss";
 @import "./varibles.scss";
 
-//Header
 @import "./components/header.scss";
 @import "./components/banner.scss";
-@import "./components/menu.scss";
 
 * {
   box-sizing: border-box;
@@ -19,7 +17,7 @@ body {
   height: 100%;
   font-family: "ibm plex sans";
   font-size: 16px;
-  background-color: #fff;
+  background-color: $white;
   color: $text;
 }
 
@@ -129,16 +127,4 @@ ul {
 
 .body-lock {
   overflow-y: hidden;
-}
-
-.cursor {
-  cursor: pointer;
-  height: 2.5rem;
-  width: 2.5rem;
-  position: absolute;
-  z-index: 10;
-  top: 0;
-  background: #e7dede;
-  border-radius: 100%;
-  pointer-events: none;
 }
